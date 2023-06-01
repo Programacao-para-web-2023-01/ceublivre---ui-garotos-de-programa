@@ -9,6 +9,10 @@ export interface ProdutoProps{
 
 export default function Produto({key, firstKey, name, price, image, description}:ProdutoProps){
     return(
-        <div></div>
+        <div>
+            <div>{{ name }}</div>
+
+            <img src={{image}}/>
+        </div>
     )
 }
