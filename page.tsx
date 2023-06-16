@@ -24,12 +24,12 @@ export default async function ObterProduto(){
     return (
         <>
             <h2>Axios</h2>
-            {response.map((post) => (
-                <div key={post.key}>
-                    <p>Name: {post.name}</p>
-                    <p>Description: {post.description}</p>
-                    <p>Price: R${post.price}.55</p>
-                    <img src={post.image} alt={post.name} />
+            {response.map((prod) => (
+                <div key={prod.key}>
+                    <p>Name: {prod.name}</p>
+                    <p>Description: {prod.description}</p>
+                    <p>Price: R${prod.price}.55</p>
+                    <img src={prod.image} alt={prod.name} />
                 </div>
             ))}
         </>
