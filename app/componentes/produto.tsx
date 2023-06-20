@@ -1,21 +1,24 @@
 import Image from "next/image";
-const url = 'http://127.0.0.1:8000';
 
-export interface ProdutoProps{
-    key: string;
-    firstKey: string;
+
+export interface produtoInterface{
     name: string;
     price: number;
     image: string;
     description: string;
 }
 
-export default function Produto({key, firstKey, name, price, image, description}:ProdutoProps){
+
+
+export default function Produto({name, price, image, description}:produtoInterface){
+    
     return(
-        <div>
-            <Image src={url + '/' + {image}} alt="{name}" />
-            <div>{name}</div>
-            <div>{price}</div>
-        </div>
+        <>
+        <Image src={`/${image}`} alt={name} width={300} height={200}/>
+
+        <h2>{name}</h2>
+        <p>{description}</p>
+        <p>{price}</p>
+        </>
     )
 }
