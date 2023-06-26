@@ -41,17 +41,22 @@ export default function TelaProduto(){
     };
 
     return(
-        <main>
-            {products.map((product) => (
-                <div key={product.key}>
-                    <Produto
-                        image={product.image}
-                        name={product.name}
-                        price={product.price}
-                        description={product.desctiption}
-                    />
-                </div>
-            ))}
-        </main>
+        <>
+            <header>
+                <input type="text" id="barra_buscas"/>
+            </header>
+            <main className="flex flex-col ">
+                {products.map((product) => (
+                    <div key={product.key}>
+                        <Produto
+                            image={product.image}
+                            name={product.name}
+                            price={product.price}
+                            description={product.desctiption}
+                         />
+                    </div>
+                ))}
+            </main>
+        </>
     );
 }
