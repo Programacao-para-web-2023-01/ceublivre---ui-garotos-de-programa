@@ -1,3 +1,14 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -13,12 +24,22 @@ body {
   align-content: center;
   flex-wrap: wrap;
 }
+
 input{
   background-color: #ffffff;
   border-radius: 5px;
   margin-bottom: 5px;
 }
 
+:root {
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+  'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+  'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
 
 * {
   box-sizing: border-box;
@@ -60,4 +81,9 @@ a {
 
 img {
   background-color: lightblue;
+}
+
+.footer .card-body {
+  background-color: black;
+  color: white;
 }
