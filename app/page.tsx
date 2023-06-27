@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Produto from "./componentes/produto";
 import axios from "axios";
 
+
 const instance = axios.create({
     baseURL: 'http://127.0.0.1:8000'
 });
