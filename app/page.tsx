@@ -52,7 +52,6 @@ export default function TelaProduto(){
                             image={product.image}
                             name={product.name}
                             price={product.price}
-                            description={product.desctiption}
                          />
                     </div>
                 ))}
