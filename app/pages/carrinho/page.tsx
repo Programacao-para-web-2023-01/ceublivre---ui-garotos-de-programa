@@ -1,4 +1,4 @@
-import carrinho from "@/app/componentes/Carrinho"
+import carrinho from "@/app/componentes/carrinho"
 
 export const metadata = {
     title: "Carrinho",

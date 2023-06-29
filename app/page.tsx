@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Produto from "./componentes/produto";
 import Link from "next/link";
 import axios from "axios";
+import {AdicionarCarrinho} from "@/app/componentes/addToCart";
+import BuscaProdutoComponent from "@/app/componentes/buscaProduto";
 
 
 const instance = axios.create({
@@ -27,6 +29,7 @@ const pegaProduto = async () => {
 
 export default function TelaProduto(){
     const [products, setProducts] = useState<Produto[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -41,21 +44,27 @@ export default function TelaProduto(){
             console.error(error);
         }
     };
+    const handleSearch = (searchTerm: string) => {
+        setSearchTerm(searchTerm);
+    };
 
+    const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return(
         <>
-            <header>
-                <input type="text" id="barra_buscas"/>
-            </header>
+            <BuscaProdutoComponent onSearch={handleSearch} />
             <main className="flex flex-col ">
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <div key={product.key}>
+                        <br />
                         <Produto
                             image={product.image}
                             name={product.name}
                             price={product.price}
                          />
-                         <Link href={`/pages/produtos/${product.key}`}>Mais informações</Link>
+                        <AdicionarCarrinho />
+                        <Link href={`/pages/produtos/${product.key}`}>Mais informações</Link>
                     </div>
                 ))}
             </main>

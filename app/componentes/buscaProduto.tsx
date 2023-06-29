@@ -1,45 +1,37 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import {produtoInterface} from "@/app/componentes/produto";
 
-const link = axios.create({
-    baseURL:'http://127.0.0.1:8000'
-});
+type BuscaProdutoProps = {
+    onSearch: (searchTerm: string) => void;
+};
 
-export default function BuscaProdutoComponent(){
-    const [buscaProdutoTermo, setBuscaProdutoTermo] = useState("");
-    const [buscaProdutoResultado, setBuscaProdutoReultado] = useState([]);
+export default function BuscaProdutoComponent({onSearch}:BuscaProdutoProps){
+    const [searchTerm, setSearchTerm] = useState("");
 
-    async function handleSubmit(){
-        const response = await fetch(`${link}/category`);
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
 
-        const data = await response.json();
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onSearch(searchTerm);
+    };
 
-        setBuscaProdutoReultado(data.results);
-    }
+    const handleClear = () => {
+        setSearchTerm("");
+    };
 
-    return(
-        <>
-            <div>
-                <input type="text"  
-                value={buscaProdutoTermo}  
-                onChange={(event) => setBuscaProdutoTermo(event.target.value)}/>
-                <input type="button" value="Perquisar" onClick={handleSubmit} />
-            </div>
-
-            <div>
-                { buscaProdutoTermo.length > 0 ?(
-                    <ul>
-                       {buscaProdutoResultado.map((result: any) => (
-                            <li key={result.key}>{result.name}</li>    
-                        ))}
-                    </ul>
-                ) : (
-                    <p>Produto não encontrado</p>
-                )
-                }
-            </div>
-        </>
-    )
-
-}
-
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={handleInputChange}
+            />
+            <br />
+            <button type="submit">Buscar</button>
+            <button onClick={handleClear}>Limpar</button>
+        </form>
+    );
+};

@@ -9,8 +9,6 @@ export interface produtoInterface{
     description?: string;
 }
 
-
-
 export default function Produto({name, price, image, description}:produtoInterface){
     
     return(
