@@ -23,7 +23,6 @@ export default function BuscaProdutoComponent(){
                 <input type="text"  
                 value={buscaProdutoTermo}  
                 onChange={(event) => setBuscaProdutoTermo(event.target.value)}/>
-
                 <input type="button" value="Perquisar" onClick={handleSubmit} />
             </div>
 

@@ -6,12 +6,13 @@ import Link from "next/link";
 import axios from "axios";
 
 
+
 export interface ProdutoInterface{
     key: string;
     firstKey: string;
     category: string;
     name: string;
-    desctiption: string;
+    description: string;
     price: number;
     image: string;
 }
@@ -19,7 +20,6 @@ export interface ProdutoInterface{
 async function pegaProduto(): Promise<ProdutoInterface[]>{
     const data = await fetch(`http://127.0.0.1:8000/product`).
     then((response) => response.json())
-    
     return data;
 }
 

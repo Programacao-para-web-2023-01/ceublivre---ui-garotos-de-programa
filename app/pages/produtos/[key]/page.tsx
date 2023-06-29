@@ -1,20 +1,16 @@
+"use client"
+
 import Produto from "@/app/componentes/produto";
-import { ProdutoInterface } from "../page";
+import {usePathname} from "next/navigation";
 
 async function pegaProdutoKey(key: string){
-    
     return fetch(`http://127.0.0.1:8000/product/${key}`).
     then((response) => response.json());
 }
 
-export default async function produtoKey({parametros}:{parametros:{key: string}}){
-
-    if (!parametros || !parametros.key) {
-        console.log(parametros);
-        return <div>Erro: Parâmetro ausente</div>;
-      }
-    
-    const produto = await pegaProdutoKey(parametros.key);
+export default async function TelaProduto(){
+    const pathname = usePathname();
+    const produto = await pegaProdutoKey(pathname.replace('/pages/produtos/', ''));
 
     return(
         <div>
@@ -22,10 +18,8 @@ export default async function produtoKey({parametros}:{parametros:{key: string}}
                 image={produto.image}
                 name={produto.name}
                 price={produto.price}
+                description={produto.description}
             />
-            <p>
-            Descrição do produto: {produto.desctiption}
-            </p>
         </div>
     )
 }
