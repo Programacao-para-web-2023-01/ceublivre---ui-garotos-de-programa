@@ -56,15 +56,15 @@ export default function TelaProduto(){
             <BuscaProdutoComponent onSearch={handleSearch} />
             <main className="flex flex-col ">
                 {filteredProducts.map((product) => (
-                    <div key={product.key}>
+                    <div key={product.key} className="product-card">
                         <br />
                         <Produto
-                            image={product.image}
                             name={product.name}
+                            image={product.image}
                             price={product.price}
                         />
                         <AdicionarCarrinho />
-                        <Link href={`/pages/produtos/${product.key}`}>Mais informações</Link>
+                        <Link className="button float-left" href={`/pages/produtos/${product.key}`}>Mais informações</Link>
                     </div>
                 ))}
             </main>

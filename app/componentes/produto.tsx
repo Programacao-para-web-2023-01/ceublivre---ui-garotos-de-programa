@@ -10,13 +10,17 @@ export interface produtoInterface{
 }
 
 export default function Produto({name, price, image, description}:produtoInterface){
-    
+    const formattedPrice = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    }).format(price);
+
     return(
         <>
         <div>
+            <h1>{name}</h1>
             <Image src={`/${image}`} alt={name} width={300} height={200}/>
-            <h2>{name}</h2>
-            <p>{price}</p>
+            <p>{formattedPrice}</p>
             <p>{description}</p>
         </div>
         </>
