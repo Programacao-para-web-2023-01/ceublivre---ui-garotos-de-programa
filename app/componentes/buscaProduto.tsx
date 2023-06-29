@@ -25,12 +25,12 @@ export default function BuscaProdutoComponent({onSearch}:BuscaProdutoProps){
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Pesquisa"
+                placeholder="Pesquisar"
                 value={searchTerm}
                 onChange={handleInputChange}
                 style={{
-                    backgroundColor: '#f2f2f2',
-                    color: '#333',
+                    backgroundColor: '#000000',
+                    color: '#fff',
                     border: 'none',
                     padding: '0.5rem 1rem',
                     borderRadius: '4px',

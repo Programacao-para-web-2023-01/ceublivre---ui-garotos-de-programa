@@ -19,7 +19,7 @@ export default function Produto({name, price, image, description}:produtoInterfa
         <>
         <div>
             <h1>{name}</h1>
-            <Image src={`/${image}`} alt={name} width={300} height={200}/>
+            <Image src={`/${image}`} alt={name} width={400} height={300}/>
             <p>{formattedPrice}</p>
             <p>{description}</p>
         </div>

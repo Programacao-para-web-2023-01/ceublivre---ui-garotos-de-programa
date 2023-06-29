@@ -26,7 +26,7 @@ body {
 }
 
 input{
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 5px;
   margin-bottom: 5px;
 }
@@ -52,11 +52,11 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: orangered;
+  background-color: blueviolet;
 }
 
 .button {
-  background-color: orangered;
+  background-color: blueviolet;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -65,7 +65,7 @@ ul {
 }
 
 .button:hover{
-  background-color: #ff8877;
+  background-color: violet;
 }
 
 li {
@@ -86,7 +86,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #ff8877;
+  background-color: violet;
 }
 
 a {
@@ -101,8 +101,8 @@ img {
   background-color: lightblue;
 }
 
-.footer .card-body {
-  background-color: black;
+.footer {
+  background-color: blueviolet;
   color: white;
 }
 
