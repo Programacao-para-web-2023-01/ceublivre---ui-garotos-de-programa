@@ -1,5 +1,7 @@
+import carrinho from "@/app/componentes/Carrinho"
+
 export const metadata = {
-    title: "About",
+    title: "Carrinho",
 }
 
 export default function Cart() {

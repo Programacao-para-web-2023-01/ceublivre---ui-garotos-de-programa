@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Produto from "./componentes/produto";
+import Link from "next/link";
 import axios from "axios";
 
 
@@ -54,6 +55,7 @@ export default function TelaProduto(){
                             name={product.name}
                             price={product.price}
                          />
+                         <Link href={`/pages/produtos/${product.key}`}>Mais informações</Link>
                     </div>
                 ))}
             </main>
