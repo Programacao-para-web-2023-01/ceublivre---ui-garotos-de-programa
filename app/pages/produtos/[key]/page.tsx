@@ -2,9 +2,10 @@
 
 import Produto from "@/app/componentes/produto";
 import {usePathname} from "next/navigation";
+import { AdicionarCarrinho } from "@/app/componentes/addToCart";
 
 async function pegaProdutoKey(key: string){
-    return fetch(`http://127.0.0.1:8000/product/${key}`).
+    return fetch(`https://ceublivreapi-1-m0315087.deta.app/product/${key}`).
     then((response) => response.json());
 }
 
@@ -13,13 +14,14 @@ export default async function TelaProduto(){
     const produto = await pegaProdutoKey(pathname.replace('/pages/produtos/', ''));
 
     return(
-        <div>
-            <Produto
+        <div className="product-card">
+            <Produto 
                 image={produto.image}
                 name={produto.name}
                 price={produto.price}
                 description={produto.description}
             />
+            <AdicionarCarrinho />
         </div>
     )
 }

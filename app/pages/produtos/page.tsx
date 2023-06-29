@@ -9,7 +9,7 @@ import BuscaProdutoComponent from "@/app/componentes/buscaProduto";
 
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000'
+    baseURL: 'https://ceublivreapi-1-m0315087.deta.app'
 });
 
 type Produto = {
